@@ -1,0 +1,17 @@
+ID: mta
+_schema-version: '2.1'
+version: 0.0.2
+modules:
+  - name: workflow_training
+    type: com.sap.application.content
+    path: workflow_training
+    requires:
+      - name: workflow_mta
+        parameters:
+          content-target: true
+resources:
+  - name: workflow_mta
+    parameters:
+      service-plan: standard
+      service: workflow
+    type: org.cloudfoundry.managed-service

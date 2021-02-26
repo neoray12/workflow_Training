@@ -1,0 +1,113 @@
+{
+    "id": "StartForm1",
+    "schemaVersion": "1.1.0",
+    "name": "myStartForm",
+    "revision": "1.0",
+    "type": "start",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "_",
+            "type": "string",
+            "label": "物料",
+            "readOnly": false,
+            "value": "${context.order.material}",
+            "control": {
+                "type": "Dropdown",
+                "properties": {
+                    "items": [
+                        {
+                            "value": "1000",
+                            "displayValue": "AACVDD01"
+                        },
+                        {
+                            "value": "2000",
+                            "displayValue": "AACVDD02"
+                        },
+                        {
+                            "value": "3000",
+                            "displayValue": "AACVDD03"
+                        }
+                    ]
+                }
+            },
+            "constraints": {
+                "required": true,
+                "enum": [
+                    "1000",
+                    "2000",
+                    "3000"
+                ]
+            }
+        },
+        {
+            "id": "__1",
+            "type": "string",
+            "label": "國家",
+            "readOnly": false,
+            "value": "${context.order.country}",
+            "control": {
+                "type": "Dropdown",
+                "properties": {
+                    "items": [
+                        {
+                            "value": "TW",
+                            "displayValue": "台灣"
+                        },
+                        {
+                            "value": "US",
+                            "displayValue": "美國"
+                        },
+                        {
+                            "value": "JP",
+                            "displayValue": "日本"
+                        }
+                    ]
+                }
+            },
+            "constraints": {
+                "required": true,
+                "enum": [
+                    "TW",
+                    "US",
+                    "JP"
+                ]
+            }
+        },
+        {
+            "id": "__2",
+            "type": "integer",
+            "label": "金額",
+            "readOnly": false,
+            "value": "${context.order.ordervalue}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "__3",
+            "type": "string",
+            "label": "備註",
+            "placeholder": "請輸入備註",
+            "readOnly": false,
+            "value": "${context.order.comment}",
+            "control": {
+                "type": "TextArea",
+                "properties": {
+                    "height": "medium"
+                }
+            },
+            "constraints": {
+                "required": false
+            }
+        }
+    ],
+    "actions": [
+        {
+            "id": "action1",
+            "text": "送出",
+            "workflowDefinitionId": "workflow_training",
+            "workflowPath": "/home/user/projects/workflow_training/workflows/workflow_training.workflow"
+        }
+    ]
+}
